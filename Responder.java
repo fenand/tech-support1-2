@@ -54,11 +54,25 @@ public class Responder
     {
 
         String respuestaHash = null;
-        
         Iterator<String> iterator = userInput.iterator();
+        boolean buscador = true;
+        while(iterator.hasNext() && buscador){
+            respuestaHash = respuestasHashMap.get(iterator.next());
+            if(respuestaHash != null){
+                buscador= false;
+            }
+        }
+
+        for(String elementos : userInput){
+            //por cada elemto del hasset decir que la respuesta es el valor del hashset que tiene como clave el elemnto que estamos mirando en el for
+            if(respuestaHash== null){
+                respuestaHash = respuestasHashMap.get(elementos);
+            }
+        }
+
         //altenativa con un for
         String userinputString =  iterator.next();
-        
+
         respuestaHash = respuestasHashMap.get(userInput);
         int numeroAleatorio =  respuestaAleatoria.nextInt(5);
         if(respuestaHash == null){
