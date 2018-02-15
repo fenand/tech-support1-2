@@ -30,7 +30,13 @@ public class InputReader
     {
         System.out.print("> ");         // print prompt
         String inputLine = reader.nextLine();
+        inputLine.length();
 
-        return inputLine;
+        String [] arrayStrings = inputLine.split(" ");
+        String primeraCadena = arrayStrings[0];
+        return primeraCadena;
+        //alternativa mas eficiente
+        //return inputLine.split(" ")[0];
+        //
     }
 }
