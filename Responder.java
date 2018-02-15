@@ -26,15 +26,8 @@ public class Responder
     {
         //iniciamos el random y el arraylist
         respuestaAleatoria = new Random();
-        respuesta = new ArrayList<>();
-
-        //añadimos 5 respuestas
-        respuesta.add("¿Estas seguro de esa pregunta?");
-        respuesta.add("¿Escribe bien?");
-        respuesta.add("No es correcto");
-        respuesta.add("Cierra todo y largate");
-        respuesta.add("Estudia mas Zoquete!!");
-
+        //llamamos a las respuestas por defecto 
+        respuestasPorDefecto();
         //iniciamos el objeto
         respuestasHashMap = new HashMap<>();
 
@@ -96,15 +89,34 @@ public class Responder
         // String userinputString =  iterator.next();
 
         // respuestaHash = respuestasHashMap.get(userInput);
+        // respuestaHash = respuestasHashMap.get(userInput);
+        // int numeroAleatorio =  respuestaAleatoria.nextInt(5);
         respuestaHash = respuestasHashMap.get(userInput);
-        int numeroAleatorio =  respuestaAleatoria.nextInt(5);
         if(respuestaHash == null){
-            respuestaHash = respuesta.get(numeroAleatorio);
+            //respuestaHash = respuesta.get(numeroAleatorio);
+            if(respuesta.size()>0){
+                respuestaHash = respuesta.remove(respuestaAleatoria.nextInt(respuesta.size()));
+            }
+            else{
+                respuestaHash= "Perdona. no he entendido la pregunta";
+            }
         }
 
         return respuestaHash;
         // alternativa mas eficiente
         //return respuesta.get(respuestaAleatoria.nextInt(5));
 
+    }
+
+    public void respuestasPorDefecto(){
+
+        respuesta = new ArrayList<>();
+
+        //añadimos 5 respuestas
+        respuesta.add("¿Estas seguro de esa pregunta?");
+        respuesta.add("¿Escribe bien?");
+        respuesta.add("No es correcto");
+        respuesta.add("Cierra todo y largate");
+        respuesta.add("Estudia mas Zoquete!!");
     }
 }
