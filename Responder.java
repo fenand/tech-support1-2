@@ -1,6 +1,8 @@
 import java.util.Random;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Iterator;
 
 /**
  * The responder class represents a response generator object.
@@ -48,10 +50,15 @@ public class Responder
      * Generate a response.
      * @return   A string that should be displayed as the response
      */
-    public String generateResponse( String userInput)
+    public String generateResponse(HashSet<String>userInput)
     {
 
         String respuestaHash = null;
+        
+        Iterator<String> iterator = userInput.iterator();
+        //altenativa con un for
+        String userinputString =  iterator.next();
+        
         respuestaHash = respuestasHashMap.get(userInput);
         int numeroAleatorio =  respuestaAleatoria.nextInt(5);
         if(respuestaHash == null){

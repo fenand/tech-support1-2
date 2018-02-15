@@ -26,17 +26,20 @@ public class InputReader
      *
      * @return  A String typed by the user.
      */
-    public String getInput()
+    public HashSet<String>getInput()
     {
         System.out.print("> ");         // print prompt
         String inputLine = reader.nextLine();
         inputLine.length();
 
+        HashSet<String> conjuntoDePalabras = new HashSet<>();
         String [] arrayStrings = inputLine.split(" ");
-        String primeraCadena = arrayStrings[0];
-        return primeraCadena;
+        for(int i =0; i<arrayStrings.length; i++){
+          conjuntoDePalabras.add(arrayStrings[i]);  
+        }
+
         //alternativa mas eficiente
-        //return inputLine.split(" ")[0];
-        //
+        return conjuntoDePalabras;
+
     }
 }
